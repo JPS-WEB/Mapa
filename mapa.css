@@ -1,0 +1,137 @@
+/* ================================
+   MAPA (GRID)
+================================ */
+#mapa {
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  grid-template-rows: repeat(10, 50px);
+  gap: 1px;
+}
+
+/* ================================
+   CÉLULAS DO MAPA
+================================ */
+.cell {
+  width: 50px;
+  height: 50px;
+  background: #2a2a2a;
+  position: relative;
+
+  /* 🔒 impede clique na célula */
+  pointer-events: none;
+}
+
+/* permite clique SOMENTE nos elementos internos */
+.cell > * {
+  pointer-events: auto;
+}
+
+/* ================================
+   VISÃO / FOG OF WAR
+================================ */
+.cell.escuro {
+  background: #000;
+}
+
+.cell.parede {
+  background: #666;
+}
+
+.cell.parede-escura {
+  background: #222;
+}
+
+/* ================================
+   TOKEN DO JOGADOR
+================================ */
+.token {
+  width: 80%;
+  height: 80%;
+  background: red;
+  border-radius: 50%;
+  margin: auto;
+  z-index: 5;
+}
+
+/* ================================
+   TOKEN DO NPC
+================================ */
+.npc-token {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 80%;
+  height: 80%;
+  background: green;
+  border-radius: 50%;
+
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ================================
+   ESTADOS DO NPC
+================================ */
+
+/* NPC selecionado (sem tipo definido) */
+.npc-token.selecionado:not(.fisico):not(.magico) {
+  outline: 3px solid yellow;
+}
+
+/* ataque físico disponível */
+.npc-token.fisico {
+  outline: 3px solid red;
+}
+
+/* ataque mágico disponível */
+.npc-token.magico {
+  outline: 3px solid blue;
+}
+
+/* fora de alcance */
+.npc-token.fora-alcance {
+  outline: 3px dashed orange;
+  opacity: 0.4;
+}
+
+/* ================================
+   BARRA DE VIDA DO NPC
+================================ */
+.hp-bar {
+  position: absolute;
+  bottom: -6px;
+  left: 10%;
+  width: 80%;
+  height: 5px;
+
+  background: #333;
+  border-radius: 3px;
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+.hp-fill {
+  height: 100%;
+  background: green;
+  transition: width 0.2s linear;
+}
+
+/* ================================
+   PAINEL DO ALVO
+================================ */
+#painel-alvo {
+  margin-top: 10px;
+  padding: 10px;
+  background: #111;
+  color: #fff;
+  width: 220px;
+  border: 1px solid #333;
+  font-family: Arial, sans-serif;
+}
+
+#painel-alvo h3 {
+  margin-top: 0;
+}
