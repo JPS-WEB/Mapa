@@ -48,6 +48,12 @@ $personagemId = (int)($_GET['id'] ?? 0);
 <script>
   const PERSONAGEM_ID = <?= $personagemId ?>;
 </script>
-<script src="mapa.js"></script>
+<button onclick="atacar(1)">Atacar Goblin</button>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="src/js/socket.js"></script>
+<script src="src/js/mapa.js"></script>
+<script src="src/js/npc.js"></script>
+<script src="src/js/combate.js"></script>
 </body>
 </html>
