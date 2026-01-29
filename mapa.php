@@ -19,19 +19,17 @@
 <button id="btn-atacar">Atacar</button>
 
 <!-- 1️⃣ socket.io -->
+<!-- Socket.IO CLIENT DO SERVIDOR NODE -->
 <script src="https://mapa-production.up.railway.app/socket.io/socket.io.js"></script>
 
-<!-- 2️⃣ socket -->
+<!-- cria o socket -->
 <script src="src/js/sockets.js"></script>
 
-<!-- 3️⃣ mapa -->
+<!-- resto do jogo -->
 <script src="src/js/mapas.js"></script>
-
-<!-- 4️⃣ npc -->
 <script src="src/js/npcs.js"></script>
-
-<!-- 5️⃣ combate -->
 <script src="src/js/combates.js"></script>
+
 
 
 </body>
