@@ -53,7 +53,7 @@ $personagemId = (int)($_GET['id'] ?? 0);
 <!-- 1️⃣ SOCKET.IO DO SERVIDOR -->
 <script src="https://mapa-production.up.railway.app/socket.io/socket.io.js"></script>
 
-<script src="src/js/socket.js"></script>
+<script src="socket/socket.js"></script>
 <script src="src/js/mapa.js"></script>
 <script src="src/js/npc.js"></script>
 <script src="src/js/combate.js"></script>
