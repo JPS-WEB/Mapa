@@ -6,7 +6,7 @@ $personagemId = (int)($_GET['id'] ?? 0);
 <head>
 <meta charset="UTF-8">
 <title>Mapa</title>
-<link rel="stylesheet" href="mapa.css">
+<link rel="stylesheet" href="src/css/mapa.css">
 <style>
   body{
     background: #000000;
@@ -45,15 +45,17 @@ $personagemId = (int)($_GET['id'] ?? 0);
 <div id="mapa"></div>
   <button id="btn-atacar">Atacar</button>
 
+<script src="mapa-production.up.railway.app/socket.io/socket.io.js"></script>
+
 <script>
   const PERSONAGEM_ID = <?= $personagemId ?>;
 </script>
-<button onclick="atacar(1)">Atacar Goblin</button>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="src/js/socket.js"></script>
+<script src="src/js/socket.js"></script>   <!-- cria socket -->
 <script src="src/js/mapa.js"></script>
 <script src="src/js/npc.js"></script>
 <script src="src/js/combate.js"></script>
+
+
 </body>
 </html>
