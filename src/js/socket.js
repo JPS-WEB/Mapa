@@ -1,18 +1,29 @@
-// ================================
-// SOCKET.IO - CONEXÃO GLOBAL
-// ================================
+// src/js/socket.js
 
-const socket = io("https://mapa-production.up.railway.app", {
-  transports: ["websocket"],
-  auth: {
-    personagemId: window.PERSONAGEM_ID ?? null
-  }
+// ⚠️ GARANTE QUE socket.io.js FOI CARREGADO
+if (typeof io === "undefined") {
+  console.error("❌ socket.io.js NÃO foi carregado");
+}
+
+// cria conexão
+const io = new Server(server, {
+  cors: {
+    origin: "*"
+  },
+  transports: ["websocket"], // 🔥 somente websocket
+  allowUpgrades: false
 });
 
+
+// conexão OK
 socket.on("connect", () => {
-  console.log("🟢 Conectado ao servidor realtime:", socket.id);
+  console.log("🟢 Socket conectado:", socket.id);
 });
 
-socket.on("disconnect", () => {
-  console.warn("🔴 Desconectado do servidor realtime");
+// erro
+socket.on("connect_error", err => {
+  console.error("❌ Erro socket:", err.message);
 });
+
+// deixa socket global
+window.socket = socket;
